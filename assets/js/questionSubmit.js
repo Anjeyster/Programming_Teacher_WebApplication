@@ -85,9 +85,9 @@ function submitQuestion(){
 
 
     //add data to firebase
-    var addQuestion = firebase.database().ref();
-    var jsonVariable = {};
-    jsonVariable['question'+currentPos] = {
+    var addQuestions = firebase.database().ref().child("Questions");
+    var jsonVariables = {};
+    jsonVariables[parseInt(currentPos)] = {
         heading: title ,
         description: des,
         currentClass: questionNUmber,
@@ -99,7 +99,7 @@ function submitQuestion(){
         correctSequene: correctArray
     };
 
-    addQuestion.set(jsonVariable);
+    addQuestions.push(jsonVariables);
 
     var updateID = firebase.database().ref();
     updateID.update({
