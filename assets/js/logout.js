@@ -3,12 +3,8 @@
  */
 window.onload = function(){
     if(localStorage.getItem("isLogged") != "true"){
-        //alert('hello');
         window.location = 'index.html'
     }else{
-        console.log(localStorage.getItem("Name"));
-        console.log(localStorage.getItem("photo"));
-
         document.getElementById("dname").innerHTML = localStorage.getItem("Name");
         document.getElementById("image").src = localStorage.getItem("photo");
     }
