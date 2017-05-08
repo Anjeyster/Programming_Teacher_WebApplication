@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78b51e55-5a84-4816-a6d2-c4ce7ea5dfe8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/logout.js" afterPath="$PROJECT_DIR$/assets/js/logout.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/questionSubmit.js" afterPath="$PROJECT_DIR$/assets/js/questionSubmit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/question.html" afterPath="$PROJECT_DIR$/question.html" />
     </list>
     <ignored path="pt.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,8 +44,8 @@
       <file leaf-file-name="questionSubmit.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/questionSubmit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="81" column="6" selection-start-line="81" selection-start-column="6" selection-end-line="81" selection-end-column="6" />
+            <state relative-caret-position="379">
+              <caret line="104" column="19" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="19" />
               <folding>
                 <element signature="e#0#48#0" expanded="false" />
               </folding>
@@ -256,12 +254,12 @@
       <workItem from="1494073051984" duration="11402000" />
       <workItem from="1494125238413" duration="9651000" />
       <workItem from="1494216138349" duration="12801000" />
-      <workItem from="1494246690112" duration="8170000" />
+      <workItem from="1494246690112" duration="14311000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42620000" />
+    <option name="totallyTimeSpent" value="48761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="749" extended-state="0" />
@@ -500,8 +498,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/questionSubmit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="81" column="6" selection-start-line="81" selection-start-column="6" selection-end-line="81" selection-end-column="6" />
+        <state relative-caret-position="379">
+          <caret line="104" column="19" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="19" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
           </folding>

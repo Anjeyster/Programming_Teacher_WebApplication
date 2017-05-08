@@ -75,9 +75,41 @@ function submitQuestion(){
         }
     }
 
-
+    var updatedCurrentID = newCurrentID + 1;
+    var currentPos = questionNUmber.substring(1);
+    var successPos = sno.substring(1);
     //get JSON type arrays for main,sub,correct tags
     //console.log(mainTagArray);
     //console.log(subTagArray);
     //console.log(correctArray);
+
+
+    //add data to firebase
+    var addQuestion = firebase.database().ref();
+    var jsonVariable = {};
+    jsonVariable['question'+currentPos] = {
+        heading: title ,
+        description: des,
+        currentClass: questionNUmber,
+        successClass: sno,
+        currentPos: currentPos,
+        successPos: successPos,
+        mainTags: mainTagArray,
+        subTags: subTagArray,
+        correctSequene: correctArray
+    };
+
+    addQuestion.set(jsonVariable);
+
+    var updateID = firebase.database().ref();
+    updateID.update({
+        "currentID": updatedCurrentID
+    });
+
+    var updateQuestion = firebase.database().ref();
+    updateQuestion.update({
+        "questionNo": sno
+    });
+
+    location.reload();
 }
