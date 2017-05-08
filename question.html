@@ -37,7 +37,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="php/logout.php">Logout</a></li>
+                <li style="margin-right:20px;"><img id="image" style="width:50px; height:50px;" /></li>
+                <li id="dname" style="margin-right:30px; margin-top:15px;text-transform: uppercase; font-weight: bold;"></li>
+                <li class="active"><a onclick="googleSignout()" style="cursor: hand;">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -107,6 +109,7 @@
 <script src="assets/js/selectize.min.js" type="text/javascript"></script>
 
 <script src="assets/js/tags.js" type="text/javascript"></script>
+<script src="assets/js/logout.js" type="text/javascript"></script>
 
 <script>
     $('#input-tags').selectize({
@@ -130,6 +133,20 @@
         createOnBlur: true,
         create: true
     });
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDlxIWqKb-vpiruU1y1_3DJy_LG7Urw8CE",
+        authDomain: "mango-studio.firebaseapp.com",
+        databaseURL: "https://mango-studio.firebaseio.com",
+        projectId: "mango-studio",
+        storageBucket: "mango-studio.appspot.com",
+        messagingSenderId: "278219738587"
+    };
+    firebase.initializeApp(config);
 </script>
 
 
