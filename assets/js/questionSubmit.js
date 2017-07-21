@@ -30,6 +30,7 @@ function submitQuestion(){
     var subTags = document.getElementById('input-tags2').value.split('`');
     var correct = document.getElementById('input-tags3').value.split('`');
 
+    //console.log(correct);
     var mainTagArray = [];
     var subTagArray = [];
     //var correctArray = [];
@@ -76,11 +77,13 @@ function submitQuestion(){
     //         }
     //     }
     // }
-
     for(var m=0;m<correct.length;m++){
         if(correct[m].indexOf('|') == 0){
             correct[m] = '|';
         }
+    }
+
+    for(var m=0;m<correct.length;m++){
 
         if(correct[m+1] != '|' && correct[m] !='|'){
             correctSequence += correct[m]+',';
