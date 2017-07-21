@@ -31,7 +31,7 @@ function submitQuestion(){
 
     var mainTagArray = [];
     var subTagArray = [];
-    var correctArray = [];
+    //var correctArray = [];
     var correctSequence ="";
 
     for (var i = 0; i < mainTags.length; i++) {
@@ -86,9 +86,9 @@ function submitQuestion(){
     correctSequence = correctSequence.substring(0, correctSequence.length - 1);
     //alert(correctSequence);
 
-    correctArray.push({
-        sequence: correctSequence
-    });
+    // correctArray.push({
+    //     sequence: correctSequence
+    // });
 
 
 
@@ -102,7 +102,7 @@ function submitQuestion(){
 
 
     //add data to firebase
-    var addQuestions = firebase.database().ref().child("Questions");
+    var addQuestions = firebase.database().ref().child("Questions").child("QArray");
     var jsonVariables = {};
     jsonVariables[parseInt(currentPos)] = {
         heading: title ,
@@ -113,17 +113,17 @@ function submitQuestion(){
         successPos: successPos,
         mainTags: mainTagArray,
         subTags: subTagArray,
-        correctSequene: correctArray
+        correctSequene: correctSequence
     };
 
     addQuestions.push(jsonVariables);
 
-    var updateID = firebase.database().ref();
+    var updateID = firebase.database().ref().child("Questions");
     updateID.update({
         "currentID": updatedCurrentID
     });
 
-    var updateQuestion = firebase.database().ref();
+    var updateQuestion = firebase.database().ref().child("Questions");
     updateQuestion.update({
         "questionNo": sno
     });
