@@ -32,6 +32,7 @@ function submitQuestion(){
     var mainTagArray = [];
     var subTagArray = [];
     var correctArray = [];
+    var correctSequence ="";
 
     for (var i = 0; i < mainTags.length; i++) {
         var nCurrentID = currentID + i;
@@ -53,27 +54,43 @@ function submitQuestion(){
 
 
 
-    for(var l=0; l<correct.length;l++){
-        for(var n=0;n< mainTagArray.length;n++){
-            if(correct[l] == mainTagArray[n].tag_name){
-                correctArray.push({
-                    tag_name: correct[l],
-                    id:mainTagArray[n].id
-                });
-            }
-        }
-    }
+    // for(var l=0; l<correct.length;l++){
+    //     for(var n=0;n< mainTagArray.length;n++){
+    //         if(correct[l] == mainTagArray[n].tag_name){
+    //             correctArray.push({
+    //                 tag_name: correct[l],
+    //                 id:mainTagArray[n].id
+    //             });
+    //         }
+    //     }
+    // }
+    //
+    // for(var m=0; m<correct.length;m++){
+    //     for(var p=0;p< subTagArray.length;p++){
+    //         if(correct[m] == subTagArray[p].tag_name){
+    //             correctArray.push({
+    //                 tag_name: correct[m],
+    //                 id:subTagArray[p].id
+    //             });
+    //         }
+    //     }
+    // }
 
-    for(var m=0; m<correct.length;m++){
-        for(var p=0;p< subTagArray.length;p++){
-            if(correct[m] == subTagArray[p].tag_name){
-                correctArray.push({
-                    tag_name: correct[m],
-                    id:subTagArray[p].id
-                });
-            }
+    for(var m=0;m<correct.length;m++){
+        if(correct[m+1] != '|' && correct[m] !='|'){
+            correctSequence += correct[m]+',';
+        }else{
+            correctSequence += correct[m];
         }
     }
+    correctSequence = correctSequence.substring(0, correctSequence.length - 1);
+    //alert(correctSequence);
+
+    correctArray.push({
+        sequence: correctSequence
+    });
+
+
 
     var updatedCurrentID = newCurrentID + 1;
     var currentPos = questionNUmber.substring(1);
