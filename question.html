@@ -45,78 +45,170 @@
     </div>
 </nav>
 <div class="container" style="background-color:#FFFFFF; margin:0 auto;">
-    <div class="row">
-        <img src="assets/img/logo.png" style="width:40px; margin-left:20px; margin-top:17px; float:left; margin-right:10px;">
-        <h3 style="margin-left:30px !important;">Enter a new question</h3>
-        <hr>
-    </div>
-    <div class="row">
-        <div class="col-xs-10 col-xs-offset-1">
-            <form id="prospects_form">
-                <div class="col-xs-12">
-                    <div class="input-group">
+    <div style="margin-top:20px;">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#normal" aria-controls="home" role="tab" data-toggle="tab">Normal Questions</a></li>
+            <li role="presentation"><a href="#multi" aria-controls="profile" role="tab" data-toggle="tab">Multiplayer Questions</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="normal">
+                <div class="row">
+                    <img src="assets/img/logo.png" style="width:40px; margin-left:20px; margin-top:17px; float:left; margin-right:10px;">
+                    <h3 style="margin-left:30px !important;">Enter a new question</h3>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <form id="prospects_form">
+                            <div class="col-xs-12">
+                                <div class="input-group">
                         <span class="input-group-addon">
                             <b>Question Heading</b>
                         </span>
-                        <input type="text" class="form-control" id="title" placeholder="Enter here">
-                    </div>
-                </div>
+                                    <input type="text" class="form-control" id="title" placeholder="Enter here">
+                                </div>
+                            </div>
 
-                <div class="col-xs-12">
-                    <div class="input-group">
+                            <div class="col-xs-12">
+                                <div class="input-group">
                         <span class="input-group-addon">
                             <b>Question Description</b>
                         </span>
-                        <input type="text" class="form-control" id="des" placeholder="Enter here">
-                    </div>
-                </div>
+                                    <input type="text" class="form-control" id="des" placeholder="Enter here">
+                                </div>
+                            </div>
 
 
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="input-group">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="input-group">
                         <span class="input-group-addon">
                             <b>Question Number</b>
                         </span>
-                            <input type="text" class="form-control" id="qno" placeholder="Enter here">
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="input-group">
+                                    <input type="text" class="form-control" id="qno" placeholder="Enter here">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="input-group">
                         <span class="input-group-addon">
                             <b>Success Question</b>
                         </span>
-                            <input type="text" class="form-control" id="sno"  placeholder="Enter here">
-                        </div>
-                    </div>
+                                    <input type="text" class="form-control" id="sno"  placeholder="Enter here">
+                                </div>
+                            </div>
 
 
-                <div class="col-xs-12"  style="margin-top:30px;">
-                    <b><p style="margin-left:17px; color:#555555; margin-bottom:-35px;">Question Main Tags</p></b>
-                    <div>
-                        <input type="text" id="input-tags"  class="form-control" placeholder="Enter here with comma seperate" style="margin-top:-30px !important;; ">
+                            <div class="col-xs-12"  style="margin-top:30px;">
+                                <b><p style="margin-left:17px; color:#555555; margin-bottom:-35px;">Question Main Tags</p></b>
+                                <div>
+                                    <input type="text" id="input-tags"  class="form-control" placeholder="Enter here with comma seperate" style="margin-top:-30px !important;; ">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12"  style="margin-top:30px;">
+                                <b><p style="margin-left:17px; color:#555555; margin-bottom:-35px;">Question Sub Tags</p></b>
+                                <div>
+                                    <input type="text" id="input-tags2" class="form-control" placeholder="Enter here with comma seperate" style="margin-top:-30px !important;; ">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12" style="margin-top:30px;">
+                                <div>
+                                    <b><p  style="margin-left:17px; color:#555555; margin-bottom:-35px;">Correct Answer Sequence</p></b>
+                                    <input type="text" id="input-tags3"  class="form-control" placeholder="Enter here with comma seperate" style="margin-top:-30px !important;;">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12" style="width:100%;">
+                                <button class="btn btn-primary" style="width:100%; margin-top:50px;" onclick="submitQuestion()">Submit Question</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="multi">
+                <div class="row">
+                    <img src="assets/img/logo.png" style="width:40px; margin-left:20px; margin-top:17px; float:left; margin-right:10px;">
+                    <h3 style="margin-left:30px !important;">Enter a multiplayer question</h3>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <form id="prospects_form_m">
+                            <div class="col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <b>Question</b>
+                                    </span>
+                                    <input type="text" class="form-control" id="question" placeholder="Enter here">
+                                </div>
+                            </div>
 
-                <div class="col-xs-12"  style="margin-top:30px;">
-                    <b><p style="margin-left:17px; color:#555555; margin-bottom:-35px;">Question Sub Tags</p></b>
-                    <div>
-                        <input type="text" id="input-tags2" class="form-control" placeholder="Enter here with comma seperate" style="margin-top:-30px !important;; ">
+                            <div class="col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <b>Question Title</b>
+                                    </span>
+                                    <input type="text" class="form-control" id="qtitle" placeholder="Enter here">
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <b>Answer 1</b>
+                                    </span>
+                                    <input type="text" class="form-control" id="a1" placeholder="Enter here">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <b>Answer 2</b>
+                                    </span>
+                                    <input type="text" class="form-control" id="a2"  placeholder="Enter here">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <b>Answer 3</b>
+                                    </span>
+                                    <input type="text" class="form-control" id="a3" placeholder="Enter here">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <b>Answer 4</b>
+                                    </span>
+                                    <input type="text" class="form-control" id="a4"  placeholder="Enter here">
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <b>Correct Answer</b>
+                                    </span>
+                                    <input type="text" class="form-control" id="correctNum" placeholder="Enter Answer Number here">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12" style="width:100%;">
+                                <button class="btn btn-primary" style="width:100%; margin-top:50px;" onclick="multi_submitQuestion()">Submit Question</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-
-                <div class="col-xs-12" style="margin-top:30px;">
-                    <div>
-                        <b><p  style="margin-left:17px; color:#555555; margin-bottom:-35px;">Correct Answer Sequence</p></b>
-                        <input type="text" id="input-tags3"  class="form-control" placeholder="Enter here with comma seperate" style="margin-top:-30px !important;;">
-                    </div>
-                </div>
-
-                <div class="col-xs-12" style="width:100%;">
-                    <button class="btn btn-primary" style="width:100%; margin-top:50px;" onclick="submitQuestion()">Submit Question</button>
-                </div>
-            </form>
+            </div>
         </div>
+
     </div>
+
 </div>
 
 </body>
@@ -139,6 +231,11 @@
         messagingSenderId: "487063878453"
     };
     firebase.initializeApp(config);
+
+    $('#myTabs a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
 </script>
 
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
