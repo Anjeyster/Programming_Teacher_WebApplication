@@ -3,11 +3,12 @@
  */
 
 //reference to firebase database
-var ref = firebase.database().ref();
+var ref = firebase.database().ref().child("Questions");
 var currentID;
 var questionNUmber;
 
 ref.on("value", function(snapshot) {
+    console.log(snapshot.val());
     currentID = parseInt(snapshot.val().currentID);
     questionNUmber = snapshot.val().questionNo;
     document.getElementById('qno').value = questionNUmber;
@@ -25,9 +26,9 @@ function submitQuestion(){
     var title = document.getElementById('title').value;
     var des = document.getElementById('des').value;
     var sno = document.getElementById('sno').value;
-    var mainTags = document.getElementById('input-tags').value.split(',');
-    var subTags = document.getElementById('input-tags2').value.split(',');
-    var correct = document.getElementById('input-tags3').value.split(',');
+    var mainTags = document.getElementById('input-tags').value.split('`');
+    var subTags = document.getElementById('input-tags2').value.split('`');
+    var correct = document.getElementById('input-tags3').value.split('`');
 
     var mainTagArray = [];
     var subTagArray = [];
@@ -77,6 +78,10 @@ function submitQuestion(){
     // }
 
     for(var m=0;m<correct.length;m++){
+        if(correct[m].indexOf('|') == 0){
+            correct[m] = '|';
+        }
+
         if(correct[m+1] != '|' && correct[m] !='|'){
             correctSequence += correct[m]+',';
         }else{
@@ -103,8 +108,7 @@ function submitQuestion(){
 
     //add data to firebase
     var addQuestions = firebase.database().ref().child("Questions").child("QArray");
-    var jsonVariables = {};
-    jsonVariables[parseInt(currentPos)] = {
+    var jsonVariables = {
         heading: title ,
         description: des,
         currentClass: questionNUmber,
