@@ -11,7 +11,9 @@ ref.on("value", function(snapshot) {
     console.log(snapshot.val());
     currentID = parseInt(snapshot.val().currentID);
     questionNUmber = snapshot.val().questionNo;
+    successNUmber = snapshot.val().successNo;
     document.getElementById('qno').value = questionNUmber;
+    document.getElementById('sno').value = successNUmber;
 }, function (error) {
     console.log("Error: " + error.code);
 });
@@ -33,7 +35,7 @@ function submitQuestion(){
     //console.log(correct);
     var mainTagArray = [];
     var subTagArray = [];
-    //var correctArray = [];
+    // var correctArray = [];
     var correctSequence ="";
 
     for (var i = 0; i < mainTags.length; i++) {
@@ -77,11 +79,14 @@ function submitQuestion(){
     //         }
     //     }
     // }
+
     for(var m=0;m<correct.length;m++){
         if(correct[m].indexOf('|') == 0){
             correct[m] = '|';
         }
     }
+
+
 
     for(var m=0;m<correct.length;m++){
 
@@ -91,6 +96,8 @@ function submitQuestion(){
             correctSequence += correct[m];
         }
     }
+    //alert(correct);
+
     correctSequence = correctSequence.substring(0, correctSequence.length - 1);
     //alert(correctSequence);
 
@@ -110,35 +117,42 @@ function submitQuestion(){
 
 
     //add data to firebase
-    var addQuestions = firebase.database().ref().child("Questions").child("QArray");
-    var jsonVariables = {
-        heading: title ,
-        description: des,
-        currentClass: questionNUmber,
-        successClass: sno,
-        currentPos: currentPos,
-        successPos: successPos,
-        mainTags: mainTagArray,
-        subTags: subTagArray,
-        correctSequene: correctSequence
-    };
+    // var addQuestions = firebase.database().ref().child("Questions").child("QArray");
+    // var jsonVariables = {
+    //     heading: title ,
+    //     description: des,
+    //     currentClass: questionNUmber,
+    //     successClass: sno,
+    //     currentPos: currentPos,
+    //     successPos: successPos,
+    //     mainTags: mainTagArray,
+    //     subTags: subTagArray,
+    //     correctSequene: correctSequence
+    // };
+    //
+    // addQuestions.push(jsonVariables);
+    //
+    // var updateID = firebase.database().ref().child("Questions");
+    // updateID.update({
+    //     "currentID": updatedCurrentID
+    // });
 
-    addQuestions.push(jsonVariables);
+    // var updateQuestion = firebase.database().ref().child("Questions");
+    // updateQuestion.update({
+    //     "questionNo": sno
+    // });
 
-    var updateID = firebase.database().ref().child("Questions");
-    updateID.update({
-        "currentID": updatedCurrentID
-    });
+    var temp = sno.substring(1);
 
-    var updateQuestion = firebase.database().ref().child("Questions");
-    updateQuestion.update({
-        "questionNo": sno
-    });
-
-    firebaseRefLS = firebase.database().ref().child('Questions').child('lastsync');
-    firebaseRefLS.set(
-        firebase.database.ServerValue.TIMESTAMP
-    );
-
-    location.reload();
+    // var updateSuccess = firebase.database().ref().child("Questions");
+    // updateSuccess.update({
+    //     "successNo": sno
+    // });
+    //
+    // firebaseRefLS = firebase.database().ref().child('Questions').child('lastsync');
+    // firebaseRefLS.set(
+    //     firebase.database.ServerValue.TIMESTAMP
+    // );
+    //
+    // location.reload();
 }
