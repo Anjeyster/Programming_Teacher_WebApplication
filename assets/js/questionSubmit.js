@@ -35,7 +35,7 @@ function submitQuestion(){
     //console.log(correct);
     var mainTagArray = [];
     var subTagArray = [];
-    // var correctArray = [];
+    var correctArray = [];
     var correctSequence ="";
 
     for (var i = 0; i < mainTags.length; i++) {
@@ -54,6 +54,12 @@ function submitQuestion(){
             tag_name: subTags[j],
             id:newCurrentID
         });
+    }
+
+    for(var m=0;m<correct.length;m++){
+        if(correct[m].indexOf('|') == 0){
+            correct[m] = '|';
+        }
     }
 
     //check this--------------------------------------------------------------------------------------------------
@@ -97,14 +103,6 @@ function submitQuestion(){
     // }
 
     for(var m=0;m<correct.length;m++){
-        if(correct.indexOf('|') == 0){
-            correct[m] = '|';
-        }
-    }
-
-
-
-    for(var m=0;m<correct.length;m++){
 
         if(correct[m+1] != '|' && correct[m] !='|'){
             correctSequence += correct[m]+',';
@@ -112,14 +110,14 @@ function submitQuestion(){
             correctSequence += correct[m];
         }
     }
-    alert(correct);
+    //alert(correct);
 
     correctSequence = correctSequence.substring(0, correctSequence.length - 1);
     //alert(correctSequence);
 
-    correctArray.push({
-        sequence: correctSequence
-    });
+    // correctArray.push({
+    //     sequence: correctSequence
+    // });
 
 
 

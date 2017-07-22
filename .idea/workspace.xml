@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78b51e55-5a84-4816-a6d2-c4ce7ea5dfe8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/questionSubmit.js" afterPath="$PROJECT_DIR$/assets/js/questionSubmit.js" />
     </list>
     <ignored path="pt.iws" />
@@ -50,21 +51,11 @@
       <file leaf-file-name="questionSubmit.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/questionSubmit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2569">
-              <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+            <state relative-caret-position="263">
+              <caret line="119" column="10" selection-start-line="119" selection-start-column="10" selection-end-line="119" selection-end-column="10" />
               <folding>
                 <element signature="e#0#48#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="multi_questionSubmit.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/multi_questionSubmit.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -268,12 +259,12 @@
       <workItem from="1494302200083" duration="29000" />
       <workItem from="1494302579272" duration="3715000" />
       <workItem from="1500623813766" duration="11677000" />
-      <workItem from="1500726543013" duration="3755000" />
+      <workItem from="1500726543013" duration="6179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72806000" />
+    <option name="totallyTimeSpent" value="75230000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="749" extended-state="0" />
@@ -740,8 +731,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/questionSubmit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2569">
-          <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+        <state relative-caret-position="263">
+          <caret line="119" column="10" selection-start-line="119" selection-start-column="10" selection-end-line="119" selection-end-column="10" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
           </folding>
