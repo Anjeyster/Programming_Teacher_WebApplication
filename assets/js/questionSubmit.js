@@ -135,5 +135,10 @@ function submitQuestion(){
         "questionNo": sno
     });
 
+    firebaseRefLS = firebase.database().ref().child('Questions').child('lastsync');
+    firebaseRefLS.set(
+        firebase.database.ServerValue.TIMESTAMP
+    );
+
     location.reload();
 }
