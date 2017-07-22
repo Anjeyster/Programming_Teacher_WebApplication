@@ -56,6 +56,22 @@ function submitQuestion(){
         });
     }
 
+    //check this--------------------------------------------------------------------------------------------------
+    for(var l=0;l<correct.length;l++){
+        if (mainTags.indexOf(correct[l]) > -1) {
+            for(var e=0;e< mainTagArray.length;e++){
+                if(correct[l] == mainTagArray[e].tag_name){
+                    correct[l] = mainTagArray[e].id
+                }
+            }
+        } else if (subTags.indexOf(correct[l]) > -1) {
+            for(var p=0;p< subTagArray.length;p++){
+                if(correct[l] == subTagArray[p].tag_name){
+                    correct[l] = subTagArray[p].id
+                }
+            }
+        }
+    }
 
 
     // for(var l=0; l<correct.length;l++){
@@ -81,7 +97,7 @@ function submitQuestion(){
     // }
 
     for(var m=0;m<correct.length;m++){
-        if(correct[m].indexOf('|') == 0){
+        if(correct.indexOf('|') == 0){
             correct[m] = '|';
         }
     }
@@ -96,14 +112,14 @@ function submitQuestion(){
             correctSequence += correct[m];
         }
     }
-    //alert(correct);
+    alert(correct);
 
     correctSequence = correctSequence.substring(0, correctSequence.length - 1);
     //alert(correctSequence);
 
-    // correctArray.push({
-    //     sequence: correctSequence
-    // });
+    correctArray.push({
+        sequence: correctSequence
+    });
 
 
 
@@ -117,42 +133,45 @@ function submitQuestion(){
 
 
     //add data to firebase
-    // var addQuestions = firebase.database().ref().child("Questions").child("QArray");
-    // var jsonVariables = {
-    //     heading: title ,
-    //     description: des,
-    //     currentClass: questionNUmber,
-    //     successClass: sno,
-    //     currentPos: currentPos,
-    //     successPos: successPos,
-    //     mainTags: mainTagArray,
-    //     subTags: subTagArray,
-    //     correctSequene: correctSequence
-    // };
-    //
-    // addQuestions.push(jsonVariables);
-    //
-    // var updateID = firebase.database().ref().child("Questions");
-    // updateID.update({
-    //     "currentID": updatedCurrentID
-    // });
+    var addQuestions = firebase.database().ref().child("Questions").child("QArray");
+    var jsonVariables = {
+        heading: title ,
+        description: des,
+        currentClass: questionNUmber,
+        successClass: sno,
+        currentPos: currentPos,
+        successPos: successPos,
+        mainTags: mainTagArray,
+        subTags: subTagArray,
+        correctSequene: correctSequence
+    };
 
-    // var updateQuestion = firebase.database().ref().child("Questions");
-    // updateQuestion.update({
-    //     "questionNo": sno
-    // });
+    addQuestions.push(jsonVariables);
+
+    var updateID = firebase.database().ref().child("Questions");
+    updateID.update({
+        "currentID": updatedCurrentID
+    });
+
+    var updateQuestion = firebase.database().ref().child("Questions");
+    updateQuestion.update({
+        "questionNo": sno
+    });
 
     var temp = sno.substring(1);
+    temp = parseInt(temp) + 1;
+    var successNum = "z"+temp;
+    //alert(successNum);
 
-    // var updateSuccess = firebase.database().ref().child("Questions");
-    // updateSuccess.update({
-    //     "successNo": sno
-    // });
-    //
-    // firebaseRefLS = firebase.database().ref().child('Questions').child('lastsync');
-    // firebaseRefLS.set(
-    //     firebase.database.ServerValue.TIMESTAMP
-    // );
-    //
-    // location.reload();
+    var updateSuccess = firebase.database().ref().child("Questions");
+    updateSuccess.update({
+        "successNo": sno
+    });
+
+    firebaseRefLS = firebase.database().ref().child('Questions').child('lastsync');
+    firebaseRefLS.set(
+        firebase.database.ServerValue.TIMESTAMP
+    );
+
+    location.reload();
 }
