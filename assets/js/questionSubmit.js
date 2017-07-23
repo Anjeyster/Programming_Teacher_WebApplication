@@ -163,7 +163,7 @@ function submitQuestion(){
 
     var updateSuccess = firebase.database().ref().child("Questions");
     updateSuccess.update({
-        "successNo": sno
+        "successNo": successNum
     });
 
     firebaseRefLS = firebase.database().ref().child('Questions').child('lastsync');
