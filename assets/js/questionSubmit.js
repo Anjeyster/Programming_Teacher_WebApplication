@@ -14,6 +14,8 @@ ref.on("value", function(snapshot) {
     successNUmber = snapshot.val().successNo;
     document.getElementById('qno').value = questionNUmber;
     document.getElementById('sno').value = successNUmber;
+    document.getElementById('fno').value = questionNUmber;
+
 }, function (error) {
     console.log("Error: " + error.code);
 });
@@ -28,6 +30,7 @@ function submitQuestion(){
     var title = document.getElementById('title').value;
     var des = document.getElementById('des').value;
     var sno = document.getElementById('sno').value;
+    var fno = document.getElementById('fno').value;
     var mainTags = document.getElementById('input-tags').value.split('`');
     var subTags = document.getElementById('input-tags2').value.split('`');
     var correct = document.getElementById('input-tags3').value.split('`');
@@ -124,6 +127,7 @@ function submitQuestion(){
     var updatedCurrentID = newCurrentID + 1;
     var currentPos = questionNUmber.substring(1);
     var successPos = sno.substring(1);
+    var failPos = fno.substring(1);
     //get JSON type arrays for main,sub,correct tags
     //console.log(mainTagArray);
     //console.log(subTagArray);
@@ -137,8 +141,10 @@ function submitQuestion(){
         description: des,
         currentClass: questionNUmber,
         successClass: sno,
+        failureClass: fno,
         currentPos: currentPos,
         successPos: successPos,
+        failurePos:failPos,
         mainTags: mainTagArray,
         subTags: subTagArray,
         correctSequene: correctSequence
